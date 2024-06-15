@@ -37,8 +37,8 @@ main {
     justify-content: space-between;
     align-items: center;
 
-
     background-color: #4B5EFC;
+    cursor: pointer;
     
 }
 
@@ -47,6 +47,7 @@ main {
     width: 24px;
     height: 24px;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .dspl-container {
@@ -99,10 +100,11 @@ main {
     text-align: center;
 
     border-style: none;
-}
-
-.key-btn:hover {
     cursor: pointer;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .key-txt {
@@ -122,5 +124,11 @@ main {
 
 .bg-prm {
     background-color: #2E2F38;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
