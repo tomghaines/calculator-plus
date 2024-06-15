@@ -5,12 +5,65 @@ body {
 main {
     width: 375px;
     height: 812px;
-    background-color: antiquewhite;
+    background-color: #17171C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.main-grid-container {
+    display: grid;
+    width: 335px;
+    grid-template-rows: 1fr 1.5fr;
+
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.dspl-container {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+
+}
+
+.inp-el {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 200;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #747477;
+}
+
+.res-el {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 200;
+    font-size: 5rem;
+    margin: 0;
+    color: white;
+}
+
+.btn-grid-container {
+    display: grid;
+    grid-template-areas: 
+        "clear-btn plus-minus-btn perc-btn divide-btn"
+        "seven-btn eight-btn nine-btn multiply-btn"
+        "four-btn five-btn six-btn minus-btn"
+        "one-btn two-btn three-btn plus-btn"
+        "decimal-btn zero-btn del-btn equals-btn";
+    gap: 1rem;
+    justify-items: center;
     align-items: center;
 }
 
@@ -23,22 +76,30 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    border-style: none;
+}
+
+.key-btn:hover {
+    cursor: pointer;
 }
 
 .key-txt {
+    font-family: "Work Sans";
     color: white;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .bg-blue {
-    background-color: blue;
+    background-color: #4B5EFC;
 }
 
 .bg-grey {
-    background-color: grey;
+    background-color: #4E505F;
 }
 
-.bg-white {
-    background-color: white;
+.bg-prm {
+    background-color: #2E2F38;
 }
+
