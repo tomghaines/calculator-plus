@@ -1,0 +1,44 @@
+body {
+    margin: 0 auto;
+    font-family: "Work Sans", sans-serif;
+}
+main {
+    width: 375px;
+    height: 812px;
+    background-color: antiquewhite;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-btn {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.key-txt {
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-grey {
+    background-color: grey;
+}
+
+.bg-white {
+    background-color: white;
+}
