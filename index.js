@@ -1,8 +1,10 @@
 const inpEl = document.getElementById('inp-el')
 const resEl = document.getElementById('res-el')
 
+let eqIsPressed = false
+
 resEl.innerText = '0'
-inpEl.value = ''
+inpEl.value = '0'
 
 let userInp = ''
 let oprType = ''
@@ -63,6 +65,16 @@ zeroBtn.addEventListener('click', function() {
     handleNumBtnClick(0)
 })
 
+const decimalBtn = document.getElementById('decimal-btn')
+decimalBtn.addEventListener('click', function() {
+    handleNumBtnClick('.')
+})
+
+const delBtn = document.getElementById('del-btn')
+delBtn.addEventListener('click', function() {
+    handleBackspace()
+})
+
 const plusBtn = document.getElementById('plus-btn')
 plusBtn.addEventListener('click', function() {
     handleOprBtnClick('+')
@@ -70,32 +82,53 @@ plusBtn.addEventListener('click', function() {
 
 const minusBtn = document.getElementById('minus-btn')
 minusBtn.addEventListener('click', function() {
-    handleOprBtnClick('-')
+    handleOprBtnClick('–')
 })
 
 const multiplyBtn = document.getElementById('multiply-btn')
 multiplyBtn.addEventListener('click', function() {
-    handleOprBtnClick('*')
+    handleOprBtnClick('×')
 })
 
 const divideBtn = document.getElementById('divide-btn')
 divideBtn.addEventListener('click', function() {
-    handleOprBtnClick('/')
+    handleOprBtnClick('÷')
+})
+
+const percBtn = document.getElementById('perc-btn')
+percBtn.addEventListener('click', function() {
+    handleOprBtnClick('%')
 })
 
 const equalsBtn = document.getElementById('equals-btn')
 equalsBtn.addEventListener('click', function() {
     getResult()
+    eqIsPressed = true
 })
 
 function handleNumBtnClick(num) {
-    if(resEl.innerText === '0') {
-        resEl.innerText = num.toString()
+
+    if(!eqIsPressed) {
+        if(resEl.innerText === '0') {
+            resEl.innerText = num.toString()
+        } else {
+            resEl.innerText += num.toString()
+        }
+    
+        if(inpEl.value === '0') {
+            inpEl.value = num.toString()
+        } else {
+            inpEl.value += num.toString()
+        }
     } else {
-        resEl.innerText += num.toString()
+        resEl.innerText = num.toString()
+        inpEl.value += num.toString()
+        eqIsPressed = false
     }
+
+
+    clearBtn.innerHTML = `<p class="key-txt">C</p>`
     userInp += num.toString()
-    inpEl.value += num.toString()
 }
 
 function handleOprBtnClick(op) {
@@ -106,6 +139,7 @@ function handleOprBtnClick(op) {
             num1 = performOperation(num1, parseFloat(userInp), oprType)
             resEl.innerText = num1.toString()
         }
+        
         oprType = op
         userInp = ''
         inpEl.value += op
@@ -117,8 +151,10 @@ function clearDspl() {
     userInp = ''
     oprType = ''
     num1 = null
-    inpEl.value = ''
+    inpEl.value = '0'
     resEl.innerText = '0'
+    eqIsPressed = false
+    clearBtn.innerHTML = `<p class="key-txt">AC</p>`
 }
 
 function getResult() {
@@ -132,17 +168,37 @@ function getResult() {
     }
 }
 
+function handleBackspace() {
+    if(!eqIsPressed) {
+        if (userInp.length > 0) {
+            userInp = userInp.slice(0, -1);
+            inpEl.value = inpEl.value.slice(0, -1);
+            resEl.innerText = resEl.innerText.slice(0, -1);
+        }
+    } else {
+        if (userInp.length > 0) {
+            userInp = userInp.slice(0, -1);
+            resEl.innerText = resEl.innerText.slice(0, -1);
+            inpEl.value = resEl.innerText
+        }
+    }
+}
+
 function performOperation(num1, num2, operation) {
     switch (operation) {
         case '+':
             return num1 + num2
-        case '-':
+        case '–':
             return num1 - num2
-        case '*':
+        case '×':
             return num1 * num2
-        case '/':
+        case '÷':
             return num1 / num2
+        case '%':
+            return num1 % num2
         default:
             return num2
     }
 }
+
+clearDspl()
