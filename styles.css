@@ -9,6 +9,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .flex-container {
@@ -25,6 +27,7 @@ main {
     gap: 2rem;
     justify-items: center;
     align-items: center;
+    max-width: 100%;
 }
 
 .mode-btn-component {
@@ -60,12 +63,19 @@ main {
     height: 100%;
 }
 
-.inp-el {
+#inp-el {
     font-family: "Work Sans", sans-serif;
     font-weight: 200;
     font-size: 2.5rem;
     margin: 0;
     color: #747477;
+    outline: none;
+    background-color: #17171C;
+    border: none;
+    width: 100%;
+    display: flex;
+    text-align: end;
+    overflow: hidden;
 }
 
 .res-el {
